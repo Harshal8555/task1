@@ -1,0 +1,136 @@
+/* ===== General ===== */
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    margin:0;
+    padding:0;
+}
+
+/* ===== Navbar ===== */
+
+.navbar{
+    background:#007bff;
+    padding:15px;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin-right:15px;
+    font-size:18px;
+}
+
+.navbar a:hover{
+    color:yellow;
+}
+
+/* ===== Login Page ===== */
+
+.login-box{
+    width:350px;
+    background:white;
+    padding:25px;
+    margin:80px auto;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.login-box h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    background:#007bff;
+    color:white;
+    border:none;
+    padding:10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+/* ===== Product Cards ===== */
+
+.container{
+    width:90%;
+    margin:auto;
+}
+
+.product-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.product-card{
+    background:white;
+    width:300px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
+}
+
+.product-card h3{
+    margin:0;
+    color:#333;
+}
+
+.price{
+    color:green;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.product-card p{
+    color:#666;
+}
+
+/* ===== Add Product Form ===== */
+
+.form-box{
+    background:white;
+    width:500px;
+    margin:40px auto;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.form-box h2{
+    text-align:center;
+}
+
+/* ===== Responsive ===== */
+
+@media(max-width:768px){
+
+    .login-box,
+    .form-box{
+        width:90%;
+    }
+
+    .product-grid{
+        justify-content:center;
+    }
+
+    .product-card{
+        width:100%;
+    }
+
+}

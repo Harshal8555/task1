@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Product Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body class="login-body">
+    <div id="toastNotification" class="alert-toast" role="alert">
+        <i id="toastIcon" class="bi alert-toast-icon"></i>
+        <div id="toastMessage" class="alert-toast-message"></div>
+    </div>
+    <div id="loadingOverlay" class="loading-overlay"><div class="premium-spinner"></div></div>
+    <div class="login-card">
+        <div class="text-center mb-4">
+            <div class="d-inline-flex align-items-center justify-content-center bg-white text-primary rounded-circle mb-3" style="width: 60px; height: 60px; box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);">
+                <i class="bi bi-person-plus-fill" style="font-size: 1.8rem; color: #4f46e5;"></i>
+            </div>
+            <h2>Join <span>Us</span></h2>
+            <p style="color: #cbd5e1; font-size: 0.95rem; font-weight: 300;">Create an account to manage your catalog</p>
+        </div>
+        <form id="registerForm" novalidate>
+            <div class="mb-3">
+                <label for="regEmail" class="form-label">Email address</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent border-end-0 border-white-10" style="color: #94a3b8; border-color: rgba(255,255,255,0.1);">
+                        <i class="bi bi-envelope"></i>
+                    </span>
+                    <input type="email" class="form-control border-start-0 border-white-10" id="regEmail" placeholder="name@example.com" required autocomplete="email" style="border-color: rgba(255,255,255,0.1);">
+                </div>
+                <div class="invalid-feedback text-start" id="emailError" style="font-size:0.8rem;color:#f43f5e;margin-top:4px;font-weight:500;"></div>
+            </div>
+            <div class="mb-4">
+                <label for="regPassword" class="form-label">Password</label>
+                <div class="password-input-container">
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-end-0 border-white-10" style="color: #94a3b8; border-color: rgba(255,255,255,0.1);">
+                            <i class="bi bi-lock"></i>
+                        </span>
+                        <input type="password" class="form-control border-start-0 border-white-10" id="regPassword" placeholder="••••••••" required autocomplete="new-password" style="border-color: rgba(255,255,255,0.1);">
+                    </div>
+                    <button type="button" class="password-toggle-btn" id="passwordToggle" aria-label="Toggle Password Visibility">
+                        <i class="bi bi-eye" id="toggleIcon"></i>
+                    </button>
+                </div>
+                <div class="invalid-feedback text-start" id="passwordError" style="font-size:0.8rem;color:#f43f5e;margin-top:4px;font-weight:500;"></div>
+            </div>
+            <button type="submit" class="btn btn-primary-gradient w-100 py-3 mt-2">
+                <i class="bi bi-person-plus me-2"></i>Register
+            </button>
+            <p class="text-center mt-3" style="color:#94a3b8;font-size:0.85rem;">
+                Already have an account? <a href="{{ url_for('login_page') }}" style="color:#4f46e5;">Sign In</a>
+            </p>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+</html>

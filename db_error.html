@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Connection Error - Product Management System</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts (Outfit) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a, #1e1b4b);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #f43f5e;
+            --success-color: #10b981;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .error-container {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(244, 63, 94, 0.15);
+            border: 1px solid rgba(244, 63, 94, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px auto;
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(244, 63, 94, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+
+        h2 {
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .instruction-step {
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--success-color);
+            text-align: left;
+        }
+
+        .instruction-step.step-error {
+            border-left-color: var(--accent-color);
+        }
+
+        .step-num {
+            font-weight: 800;
+            color: var(--success-color);
+            margin-right: 8px;
+        }
+
+        .step-error .step-num {
+            color: var(--accent-color);
+        }
+
+        .code-box {
+            background: #090d16;
+            color: #38bdf8;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            max-height: 150px;
+            overflow-y: auto;
+            text-align: left;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-retry {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            margin-top: 15px;
+        }
+
+        .btn-retry:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container text-center">
+        <div class="icon-box">
+            <i class="bi bi-database-exclamation"></i>
+        </div>
+        <h2>Database Connection Failed</h2>
+        <p class="text-secondary mb-4">The Flask application was unable to establish a secure connection to your MySQL server.</p>
+        
+        <div class="text-start mb-4">
+            <h5 class="fw-bold mb-3"><i class="bi bi-patch-question-fill text-warning me-2"></i>How to fix this in XAMPP:</h5>
+            
+            <div class="instruction-step">
+                <span class="step-num">STEP 1:</span> Open the <strong>XAMPP Control Panel</strong>.
+            </div>
+            
+            <div class="instruction-step">
+                <span class="step-num">STEP 2:</span> Click the <strong>Start</strong> button next to <strong>MySQL</strong> (and Apache, if serving web files locally). Ensure the MySQL status turns green.
+            </div>
+            
+            <div class="instruction-step">
+                <span class="step-num">STEP 3:</span> Create the database. Go to <a href="http://localhost/phpmyadmin" target="_blank" class="text-info text-decoration-underline">phpMyAdmin</a>, create a database named <code>product_system</code>, and import <code>database/product_system.sql</code>.
+            </div>
+
+            <div class="instruction-step step-error">
+                <span class="step-num">RAW ERROR DETECTED:</span>
+                <div class="code-box mt-2">{{ error }}</div>
+            </div>
+        </div>
+
+        <button onclick="window.location.reload();" class="btn btn-retry btn-lg w-100">
+            <i class="bi bi-arrow-clockwise me-2"></i>Retry Connection
+        </button>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
